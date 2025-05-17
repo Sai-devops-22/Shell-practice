@@ -1,6 +1,7 @@
 #!/bin/bash
 
-PERSON1=$1
-PERSON2=$2
 
-echo "$PERSON1 is taller than $PERSON2"
+
+echo "ENTER YOUR ROLL NUM:"
+read roll
+echo "your roll num is:$roll"
