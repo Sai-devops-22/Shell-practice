@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NUMBER1=$1
-NUMBER2=$2
+PERSON1=$1
+PERSON2=$2
 # TIMESTAMP=$(date)
 # echo "The Timestamp is:$TIMESTAMP"
 # echo "the"
