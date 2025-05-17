@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-
-echo "ENTER YOUR ROLL NUM:"
-read -s roll
-echo "your roll num is:$roll"
+NUMBER1=10
+NUMBER2=20
+TIMESTAMP=$(date)
+SUM=$((NUMBER1+NUMBER2))
