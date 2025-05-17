@@ -3,5 +3,5 @@
 PERSON1=$1
 PERSON2=$2
 
-echo "hi $PERSON1"
-echo "hi $PERSON2"
+echo "hi $1"
+echo "hi $2"
