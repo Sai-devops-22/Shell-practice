@@ -1,7 +1,6 @@
 #!/bin/bash
 
-PERSON1=$1
-PERSON2=$2
-
-echo "hi $1"
-echo "hi $2"
+NUMBER1=10
+NUMBER2=20
+SUM=$((NUMBER+NUMBER2))
+echo "the addition of two:$SUM
