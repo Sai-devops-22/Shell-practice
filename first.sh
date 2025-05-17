@@ -1,4 +1,7 @@
 #!/bin/bash
 
-MOVIES=("KGF" "KGF2" "SALAAR")
-echo "the ${MOVIES[0]}  "
+PERSON1=$1
+PERSON2=$2
+
+echo "hi $PERSON1"
+echo "hi $PERSON2"
