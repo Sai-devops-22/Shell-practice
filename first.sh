@@ -3,4 +3,6 @@
 NUMBER1=10
 NUMBER2=20
 TIMESTAMP=$(date)
+echo "The Timestamp is:$TIMESTAMP"
 SUM=$((NUMBER1+NUMBER2))
+echo "THE SUM OF TWO IS:$SUM"
