@@ -1,3 +1,6 @@
 #!/bin/bash
 
-echo "hello worl"
+PERSON1:$1
+PERSON2:$2
+
+echo "$PERSON1 is taller than $PERSON2"
