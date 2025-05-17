@@ -1,10 +1,10 @@
 #!/bin/bash
 
-NUMBER1=$1
-if [ $NUMBER1 -lt 10 ]
-then 
-    echo "The $NUMBER1 is less then 10"
-else
-    echo "The $NUMBER1 is greater than 10"
-fi
+USER=$(id -u)
 
+if [ $USER -ne 0]
+then
+    echo "ERR0R! Please enter into roo user"
+else
+    echo "you are in root user"
+fi
