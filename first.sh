@@ -7,5 +7,5 @@ NUMBER2=$2
 # echo "the"
 # SUM=$((NUMBER1+NUMBER2))
 # echo "THE SUM OF TWO IS:$SUM"
-echo "hi $PERSON1"
-echo "HI $PERSON2"
+echo "hi $NUMBER1"
+echo "HI $NUMBER2"
