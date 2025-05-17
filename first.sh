@@ -3,5 +3,5 @@
 
 
 echo "ENTER YOUR ROLL NUM:"
-read roll
+read -s roll
 echo "your roll num is:$roll"
