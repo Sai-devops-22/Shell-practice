@@ -27,7 +27,6 @@ dnf list installed mysql  #command to check the mysql installed or not.
 if [ $? -ne 0 ]
 then 
     echo "MYSQL is not installed.....going to install"
-    exit 1
     dnf install mysql -y #command to install mysql
     VALIDATE $? "MYSQL"  #these will consider as parameters for VALIDATE function as $1,$2.see in top.
 else
@@ -38,7 +37,6 @@ dnf list installed nginx
 if [ $? -ne 0 ]
 then
     echo "nginx is not installed.....going to install"
-    exit 1
     dnf install nginx -y
     VALIDATE $? "nginx"
 else
