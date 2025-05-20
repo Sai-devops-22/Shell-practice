@@ -13,20 +13,24 @@ fi
 
 #This is to check whether the mysql is installed or not. if not, install mysql
 
+VALIDATE(){
+    if [ $1 -eq 0 ]  #to check whether mysql is installed or not
+    then 
+        echo "INSTALLING $2....SUCCESS"
+    else
+        echo "INSTALLING $2....FAILURE"  
+        exit 1
+    fi
+}
+
 dnf list installed mysql  #command to check the mysql installed or not.
 if [ $? -ne 0 ]
 then 
     echo "MYSQL is not installed.....going to install"
     exit 1
     dnf install mysql -y #command to install mysql
+    VALIDATE $? "MYSQL"
 
-    if [ $? -eq 0 ]  #to check whether mysql is installed or not
-    then 
-        echo "INSTALLING MYSQL....SUCCESS"
-    else
-        echo "INSTALLING MYSQL....FAILURE"  
-        exit 1
-    fi
 
 else
     echo "MYSQL is already installed"
