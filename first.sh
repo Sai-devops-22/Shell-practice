@@ -1,11 +1,7 @@
 #!/bin/bash
 
-USER=$(id -u)
+PERSON1=$1
+PERSON2=$2
 
-if [ $USER -ne 0 ]
-then
-    echo "ERR0R! Please enter into root user"
-    exit 1
-else
-    echo "you are in root user"
-fi
+echo "HI $1"
+echo "HI $2"
