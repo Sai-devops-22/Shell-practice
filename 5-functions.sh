@@ -29,10 +29,18 @@ then
     echo "MYSQL is not installed.....going to install"
     exit 1
     dnf install mysql -y #command to install mysql
-    VALIDATE $? "MYSQL"
-
-
+    VALIDATE $? "MYSQL"  #these will consider as parameters for VALIDATE function as $1,$2.see in top.
 else
     echo "MYSQL is already installed"
 fi
 
+dnf list installed nginx
+if [ $? -ne 0 ]
+then
+    echo "nginx is not installed.....going to install"
+    exit 1
+    dnf install nginx -y
+    VALIDATE $? "nginx"
+else
+    echo "nginx is already installed"
+fi
