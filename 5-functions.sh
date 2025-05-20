@@ -48,6 +48,6 @@ fi
 
 # 1.first check the user
 # 2.check command dnf list installed mysql
-# 3.if not install mysql with "dnf install mysql -y" command
+# 3.if not, install mysql with "dnf install mysql -y" command
 # 4.to stop repeating lines keep all the dnf install conditional statements in VALIDATED function and pass 
 # the parameters $? value and "software" as $1 and $2.
