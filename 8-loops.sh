@@ -67,3 +67,5 @@ done
 
 
 #for example:echo "MYSQL is not installed.....going to install" &>>$LOG_FILE
+
+#just creat for loop and write code inside it.
