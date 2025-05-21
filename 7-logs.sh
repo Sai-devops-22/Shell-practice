@@ -18,3 +18,13 @@ then
 else
     echo "MYSQL ALREDY INSTALLED"
 fi
+
+dnf install mysql -y
+
+if [ $? -eq 0 ]
+then
+    echo "MYSQL  INSTALLED.....success"
+else
+    echo "MYSQL not installed..failed"
+    exit 1
+fi
