@@ -8,7 +8,7 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOG_FOLDER
 echo "THE EXECUTION START TIME: $(date)" | tee -a $LOG_FILE
-PACKAGES=("mysql" "nginx" "python")
+PACKAGES=("mysql" "nginx" "python3")
 #This is to check the root user or not
 if [ $USER -ne 0 ]
 then 
