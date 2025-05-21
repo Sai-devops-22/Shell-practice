@@ -35,7 +35,7 @@ then
     dnf install mysql -y &>>$LOG_FILE #command to install mysql
     VALIDATE $? "MYSQL"  #these will consider as parameters for VALIDATE function as $1,$2.see in top.
 else
-    echo -e "MYSQL is already installed"
+    echo -e "MYSQL is already installed" | tee -a $LOG_FILE
 fi
 
 dnf list installed nginx &>>$LOG_FILE
