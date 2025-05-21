@@ -1,7 +1,7 @@
 #/bin/bash
 
 R="e\[31m"
-G="e\[32"
+G="e\[32m"
 #This is to check the root user or not
 USER=$(id -u)
 
