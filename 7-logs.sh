@@ -5,6 +5,7 @@ USER=$(id -u)
 if [ $USER -ne 0 ]
 then 
     echo "You are not a root user"
+    exit 1
 else
     echo "You are in root user"
 fi
