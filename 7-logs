@@ -1,0 +1,20 @@
+#!/bin/bash
+
+USER=$(id -u)
+
+if [ $USER -ne 0 ]
+then 
+    echo "You are not a root user"
+else
+    echo "You are in root user"
+fi
+
+dnf list installed mysql
+
+if [ $? -ne 0 ]
+then
+    echo "MYSQL not installed"
+    exit 1
+else
+    echo "MYSQL ALREDY INSTALLED"
+fi
