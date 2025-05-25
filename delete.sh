@@ -1,7 +1,11 @@
-#!/bin/bash
+# #!/bin/bash
 
-FILE='/home/ec2-user/app-logs'
-#DELETE=$(find $FILE -name "*.log" -mtime +14 -delete)
+# FILE='/home/ec2-user/app-logs'
+# #DELETE=$(find $FILE -name "*.log" -mtime +14 -delete)
 
+# DELETE=$(find "$FILE" -type f -name "*.log" -mtime +14 -print -delete)
+# echo $DELETE
+
+
+FIEL_PATH='/home/ec2-user/app-logs'
 DELETE=$(find "$FILE" -type f -name "*.log" -mtime +14 -exec basename {} \; -delete)
-echo $DELETE
