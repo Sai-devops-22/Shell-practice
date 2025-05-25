@@ -8,4 +8,4 @@
 
 
 FILE_PATH='/home/ec2-user/app-logs'
-DELETE=$(find "$FILE" -type f -name "*.log" -mtime +14 -exec basename {} \; -delete)
+DELETE=$(find "$FILE_PATH" -type f -name "*.log" -mtime +14 -exec basename {} \; -delete)
