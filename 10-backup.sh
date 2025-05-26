@@ -67,6 +67,9 @@ then
         do
             rm -rf $filepath
         done <<< $FILES
+    else
+        echo "failed"
+    fi
 else
     echo "FILES ARE not EXIST"
     exit 1
