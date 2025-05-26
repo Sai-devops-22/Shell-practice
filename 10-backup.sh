@@ -27,6 +27,7 @@ VALIDATE(){
 
 USAGE(){
     echo "THE WAY TO ADD THE FILE <source-file> <destination-file> <days>"
+    exit 1
 }
 
 if [ $# -ne 2 ]
