@@ -54,7 +54,7 @@ fi
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 
-if [ ! -z $FILES ]
+if [ ! -z "$FILES" ]
 then
     echo "FILES ARE not EXSIST $FILES"
     exit 1
