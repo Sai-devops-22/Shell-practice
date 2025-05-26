@@ -3,7 +3,7 @@
 USER_ID=$(id -u)
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=${3: 14} #it will take 14 default if the days are not given
+DAYS=${3:-14} #it will take 14 default if the days are not given
 
 check_root(){
     if [ $USER_ID -ne 0 ]
