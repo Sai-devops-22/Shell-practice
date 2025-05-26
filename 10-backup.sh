@@ -22,6 +22,7 @@ VALIDATE(){
     else
         echo "$2 IS FAILED...."
         exit 1
+    fi
 }
 
 USAGE(){
