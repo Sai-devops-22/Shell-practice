@@ -39,7 +39,7 @@ then
     echo "the source file does not exist"
     exit 1
 else
-    eccho "the source file exist"
+    echo "the source file exist"
 fi
 
 
@@ -48,7 +48,7 @@ then
     echo "the destination directory does not exist"
     exit 1
 else
-    echho "the destination file exist"
+    echo "the destination file exist"
 fi
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
