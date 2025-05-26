@@ -31,7 +31,7 @@ USAGE(){
 
 if [ $# -ne 2 ]
 then
-    USAGE()
+    USAGE
 fi
 
 if [ ! -d $SOURCE_DIR ]
