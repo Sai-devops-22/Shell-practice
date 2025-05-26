@@ -57,7 +57,7 @@ FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 if [ ! -z "$FILES" ]
 then
     echo "FILES ARE EXSIST $FILES"
-    $TIMESTAMP=$(date +%F-%H-%M-%S)
+    TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP"
 
