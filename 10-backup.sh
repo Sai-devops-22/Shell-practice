@@ -37,6 +37,7 @@ fi
 if [ ! -d $SOURCE_DIR ]
 then
     echo "the source file does not exist"
+    exit 1
 else
     eccho "the source file exist"
 fi
@@ -45,11 +46,12 @@ fi
 if [ ! -d $DEST_DIR ]
 then
     echo "the destination directory does not exist"
+    exit 1
 else
     echho "the destination file exist"
 fi
 
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime + $DAYS)
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 
 if [ ! -z $FILES ]
 then
