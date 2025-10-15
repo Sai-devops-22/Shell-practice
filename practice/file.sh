@@ -7,4 +7,4 @@ echo "$Person1:: hey hi $Person2"
 echo "$Person2:: hi $Person1"
 
 values=("one", "two", "three")
-echo "values are "${values}[0]
+echo "values are ${values}[0]"
