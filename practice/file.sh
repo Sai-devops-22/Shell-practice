@@ -13,4 +13,4 @@ NUMBER1=$1
 NUMBER2=$2
 TIMESTAMP=${date}
 SUM=$((NUMBER1+NUMBER2))
-echo "the sum of two is $SUM
+echo "the sum of two is $SUM"
