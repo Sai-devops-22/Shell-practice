@@ -3,8 +3,8 @@
 Person1=pradeep
 Person2=ravi
 
-echo "$Person1 hey hi ravi"
-echo "$Person2 ravi"
+echo "$Person1:: hey hi $Person2"
+echo "$Person2:: hi $Person1"
 
 values=("one", "two", "three")
-echo "values are "${value}[0]
+echo "values are "${values}[0]
