@@ -72,7 +72,6 @@ then
     VALIDATE $? "MYSQL"    
 else
     echo "already installed"
-    exit 1
 fi
 
 dnf list installed nginx
@@ -80,7 +79,7 @@ if [ $? -ne 0 ]
 then
     echo "the software is not installed, going to install"
     dnf install nginx -y
-    VALIDATE $? "nginx"
+    VALIDATE $? "NGINX"
 else    
     echo "the software is already installed"
 fi
