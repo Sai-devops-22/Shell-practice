@@ -17,26 +17,16 @@
 # echo "the sum of two is $SUM"
 
 
-# USER=$(id -u)
-# TIMESTAMP=$(date)
+USER=$(id -u)
+TIMESTAMP=$(date)
 
-# if [ $USER -eq 0 ]
-# then
-#     echo "the script executed at $TIMESTAMP"
-#     echo "you are a root user"
-
-# else
-#     echo "the script executed at $TIMESTAMP"
-#     echo "you are not a root user"
-#     exit 1
-# fi
-
-USER=$(id -u )
-
-if [ $USER -ne 0 ]
+if [ $USER -eq 0 ]
 then
-    echo "ERROR:: you are not a user"
-    exit 1
+    echo "the script executed at $TIMESTAMP"
+    echo "you are a root user"
+
 else
-    echo "You are a root user"
+    echo "the script executed at $TIMESTAMP"
+    echo "you are not a root user"
+    exit 1
 fi
