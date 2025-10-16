@@ -15,10 +15,10 @@
 # echo ${TIMESTAMP}
 # SUM=$((NUMBER1+NUMBER2))
 # echo "the sum of two is $SUM"
-R="/e[31m"
-G="/e[32m"
-B="/e[34m"
-N="/e[0m"
+R="\e[31m"
+G="\e[32m"
+B="\e[34m"
+N="\e[0m"
 
 USER_ID=$( id -u )
 TIMESTAMP=$( date )
@@ -73,7 +73,7 @@ then
     dnf install mysql -y
     VALIDATE $? "MYSQL"    
 else
-    echo "$G already installed $N"
+    echo -e "$G already installed $N"
 fi
 
 dnf list installed nginx
@@ -83,7 +83,7 @@ then
     dnf install nginx -y
     VALIDATE $? "nginx"
 else    
-    echo "$G the software is already installed $N"
+    echo -e "$G the software is already installed $N"
 fi
 
 dnf list installed python3
@@ -93,7 +93,7 @@ then
     dnf install python3 -y 
     VALIDATE $? "python3"
 else    
-    echo "$G already installed $N"
+    echo -e "$G already installed $N"
 fi
 
 
