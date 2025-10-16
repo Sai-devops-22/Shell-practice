@@ -73,22 +73,22 @@ else
     echo "already installed"
 fi
 
-# dnf list installed nginx
-# if [ $? -ne 0 ]
-# then
-#     echo "the software is not installed, going to install"
-#     dnf install nginx -y
-#     VALIDATE $? "NGINX"
-# else    
-#     echo "the software is already installed"
-# fi
-
 dnf list installed nginx
 if [ $? -ne 0 ]
 then
-    echo "nginx is not installed... going to install it"
+    echo "the software is not installed, going to install"
     dnf install nginx -y
-    VALIDATE $? "nginx"
-else
-    echo "nginx is already installed...Nothing to do"
+    VALIDATE $? "NGINX"
+else    
+    echo "the software is already installed"
 fi
+
+# dnf list installed nginx
+# if [ $? -ne 0 ]
+# then
+#     echo "nginx is not installed... going to install it"
+#     dnf install nginx -y
+#     VALIDATE $? "nginx"
+# else
+#     echo "nginx is already installed...Nothing to do"
+# fi
