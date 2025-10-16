@@ -83,6 +83,17 @@ else
     echo "the software is already installed"
 fi
 
+dnf list installed python
+if [ $? -ne 0]
+then    
+    echo "the software is not installed"
+    dnf install python3 -y 
+    VALIDATE $? "python"
+else    
+    echo "already installed"
+fi
+
+
 # dnf list installed nginx
 # if [ $? -ne 0 ]
 # then
