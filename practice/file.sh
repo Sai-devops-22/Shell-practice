@@ -17,39 +17,39 @@
 # echo "the sum of two is $SUM"
 
 
-USER_ID=$( id -u )
-TIMESTAMP=$( date )
+# USER_ID=$( id -u )
+# TIMESTAMP=$( date )
 
-if [ $USER_ID -eq 0 ]
-then
-    echo "the script executed at $TIMESTAMP"
-    echo "you are a root user"
+# if [ $USER_ID -eq 0 ]
+# then
+#     echo "the script executed at $TIMESTAMP"
+#     echo "you are a root user"
 
-else
-    echo "the script executed at $TIMESTAMP"
-    echo "you are not a root user"
-    exit 1
-fi  
+# else
+#     echo "the script executed at $TIMESTAMP"
+#     echo "you are not a root user"
+#     exit 1
+# fi  
 
-dnf list installed mysql
+# dnf list installed mysql
 
-if [ $? -ne 0 ]
-then
-    echo "the software is not installed. need to install"
-    exit 1
-else
-    echo "the software is already installed"
-fi
+# if [ $? -ne 0 ]
+# then
+#     echo "the software is not installed. need to install"
+#     exit 1
+# else
+#     echo "the software is already installed"
+# fi
 
-dnf install mysql -y
+# dnf install mysql -y
 
-if [ $? -ne 0 ]
-then 
-    echo "ERROR:: there is an issue"
-    exit 1
-else
-    echo "PASS:: sucessfully installed"
-fi
+# if [ $? -ne 0 ]
+# then 
+#     echo "ERROR:: there is an issue"
+#     exit 1
+# else
+#     echo "PASS:: sucessfully installed"
+# fi
 
 
 dnf list installed mysql
