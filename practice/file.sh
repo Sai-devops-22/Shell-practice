@@ -57,7 +57,7 @@ VALIDATE(){
     then 
         echo "the software $2 is installed"
     else    
-        echo "the software $2 is not installed"
+        echo "the software $2 is not installed,there is an issue"
         exit 1
     fi
 }
@@ -74,3 +74,12 @@ else
     echo "already installed"
     exit 1
 fi
+
+dnf list installed nginx
+if [ $? -ne 0 ]
+then
+    echo "the software is not installed, going to install"
+    dnf install nginx -y
+    VALIDATE $? "nginx"
+else    
+    echo "the software is already installed"
