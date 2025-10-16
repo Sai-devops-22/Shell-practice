@@ -17,8 +17,8 @@
 # echo "the sum of two is $SUM"
 
 
-USER_ID=$(id -u)
-TIMESTAMP=$(date)
+USER_ID=$( id -u )
+TIMESTAMP=$( date )
 
 if [ $USER_ID -eq 0 ]
 then
