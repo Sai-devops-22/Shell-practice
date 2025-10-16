@@ -30,3 +30,14 @@ else
     echo "you are not a root user"
     exit 1
 fi  
+
+dnf install mysql -y
+
+if [ $? -ne 0 ]
+then 
+    echo "ERROR:: there is an issue"
+    exit 1
+else
+    echo "PASS:: sucessfully installed"
+
+
