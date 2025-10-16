@@ -51,3 +51,19 @@ else
     echo "PASS:: sucessfully installed"
 fi
 
+
+dnf installed mysql
+if [ $? -ne 0 ]
+then 
+    echo "mysql is not installed, going to install"
+    dnf install mysql -y
+    if [ $? -eq 0 ]
+    then 
+        echo "the software is installed"
+    else    
+        echo "the software is not installed"
+        exit 1
+    fi
+else
+    echo "there is an issue"
+    exit 1
