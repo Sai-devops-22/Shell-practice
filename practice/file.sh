@@ -83,3 +83,4 @@ then
     VALIDATE $? "nginx"
 else    
     echo "the software is already installed"
+fi
