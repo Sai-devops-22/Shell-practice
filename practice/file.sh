@@ -17,10 +17,10 @@
 # echo "the sum of two is $SUM"
 
 
-USER=$(id -u)
+USER_ID=$(id -u)
 TIMESTAMP=$(date)
 
-if [ $USER -eq 0 ]
+if [ $USER_ID -eq 0 ]
 then
     echo "the script executed at $TIMESTAMP"
     echo "you are a root user"
@@ -29,4 +29,4 @@ else
     echo "the script executed at $TIMESTAMP"
     echo "you are not a root user"
     exit 1
-fi
+fi  
