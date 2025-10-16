@@ -65,6 +65,6 @@ then
         exit 1
     fi
 else
-    echo "there is an issue"
+    echo "already installed"
     exit 1
 fi
