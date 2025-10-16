@@ -52,18 +52,24 @@
 # fi
 
 
+VALIDATE(){
+    if [ $1 -eq 0 ]
+    then 
+        echo "the software $2 is installed"
+    else    
+        echo "the software $2 is not installed"
+        exit 1
+    fi
+}
+
+
+
 dnf list installed mysql
 if [ $? -ne 0 ]
 then 
     echo "mysql is not installed, going to install"
     dnf install mysql -y
-    if [ $? -eq 0 ]
-    then 
-        echo "the software is installed"
-    else    
-        echo "the software is not installed"
-        exit 1
-    fi
+    VALIDATE $? "MYSQL"    
 else
     echo "already installed"
     exit 1
