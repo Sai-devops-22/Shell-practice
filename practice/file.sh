@@ -67,3 +67,4 @@ then
 else
     echo "there is an issue"
     exit 1
+fi
