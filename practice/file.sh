@@ -31,6 +31,16 @@ else
     exit 1
 fi  
 
+dnf list installed mysql
+
+if [ $? -ne 0 ]
+then
+    echo "the software is not installed. need to install"
+    exit 1
+else
+    echo "the software is already installed"
+fi
+
 dnf install mysql -y
 
 if [ $? -ne 0 ]
@@ -40,3 +50,4 @@ then
 else
     echo "PASS:: sucessfully installed"
 fi
+
