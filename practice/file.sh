@@ -17,19 +17,19 @@
 # echo "the sum of two is $SUM"
 
 
-# USER_ID=$( id -u )
-# TIMESTAMP=$( date )
+USER_ID=$( id -u )
+TIMESTAMP=$( date )
 
-# if [ $USER_ID -eq 0 ]
-# then
-#     echo "the script executed at $TIMESTAMP"
-#     echo "you are a root user"
+if [ $USER_ID -eq 0 ]
+then
+    echo "the script executed at $TIMESTAMP"
+    echo "you are a root user"
 
-# else
-#     echo "the script executed at $TIMESTAMP"
-#     echo "you are not a root user"
-#     exit 1
-# fi  
+else
+    echo "the script executed at $TIMESTAMP"
+    echo "you are not a root user"
+    exit 1
+fi  
 
 # dnf list installed mysql
 
@@ -63,7 +63,6 @@ VALIDATE(){
 }
 
 
-
 dnf list installed mysql
 if [ $? -ne 0 ]
 then 
@@ -74,12 +73,22 @@ else
     echo "already installed"
 fi
 
+# dnf list installed nginx
+# if [ $? -ne 0 ]
+# then
+#     echo "the software is not installed, going to install"
+#     dnf install nginx -y
+#     VALIDATE $? "NGINX"
+# else    
+#     echo "the software is already installed"
+# fi
+
 dnf list installed nginx
 if [ $? -ne 0 ]
 then
-    echo "the software is not installed, going to install"
+    echo "nginx is not installed... going to install it"
     dnf install nginx -y
-    VALIDATE $? "NGINX"
-else    
-    echo "the software is already installed"
+    VALIDATE $? "nginx"
+else
+    echo "nginx is already installed...Nothing to do"
 fi
