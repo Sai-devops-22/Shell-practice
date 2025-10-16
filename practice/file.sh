@@ -39,5 +39,4 @@ then
     exit 1
 else
     echo "PASS:: sucessfully installed"
-
-
+fi
