@@ -22,10 +22,13 @@ N="\e[0m"
 
 USER_ID=$( id -u )
 TIMESTAMP=$( date )
+LOG_FOLDER="/var/log/shell-practice.log"
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
 if [ $USER_ID -eq 0 ]
 then
-    echo "the script executed at $TIMESTAMP"
+    echo "the script executed at $TIMESTAMP" | tee -a $LOG_FILE
     echo "you are a root user"
 
 else
@@ -69,32 +72,32 @@ VALIDATE(){
 dnf list installed mysql
 if [ $? -ne 0 ]
 then 
-    echo "mysql is not installed, going to install"
+    echo "mysql is not installed, going to install" | tee -a $LOG_FILE
     dnf install mysql -y
     VALIDATE $? "MYSQL"    
 else
     echo -e "$G already installed $N"
 fi
 
-dnf list installed nginx
-if [ $? -ne 0 ]
-then
-    echo "the software is not installed, going to install"
-    dnf install nginx -y
-    VALIDATE $? "nginx"
-else    
-    echo -e "$G the software is already installed $N"
-fi
+# dnf list installed nginx
+# if [ $? -ne 0 ]
+# then
+#     echo "the software is not installed, going to install"
+#     dnf install nginx -y
+#     VALIDATE $? "nginx"
+# else    
+#     echo -e "$G the software is already installed $N"
+# fi
 
-dnf list installed python3
-if [ $? -ne 0]
-then    
-    echo "the software is not installed"
-    dnf install python3 -y 
-    VALIDATE $? "python3"
-else    
-    echo -e "$G already installed $N"
-fi
+# dnf list installed python3
+# if [ $? -ne 0]
+# then    
+#     echo "the software is not installed"
+#     dnf install python3 -y 
+#     VALIDATE $? "python3"
+# else    
+#     echo -e "$G already installed $N"
+# fi
 
 
 # dnf list installed nginx
