@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#basics:
+#########
 # Person1=pradeep
 # Person2=ravi
 
@@ -15,28 +17,28 @@
 # echo ${TIMESTAMP}
 # SUM=$((NUMBER1+NUMBER2))
 # echo "the sum of two is $SUM"
-R="\e[31m"
-G="\e[32m"
-B="\e[34m"
-N="\e[0m"
+# R="\e[31m"
+# G="\e[32m"
+# B="\e[34m"
+# N="\e[0m"
 
-USER_ID=$( id -u )
-TIMESTAMP=$( date )
-LOG_FOLDER="/var/log/shell-practice_log"
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
-mkdir -p $LOG_FOLDER
+# USER_ID=$( id -u )
+# TIMESTAMP=$( date )
+# LOG_FOLDER="/var/log/shell-practice_log"
+# SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+# LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
+# mkdir -p $LOG_FOLDER
 
-if [ $USER_ID -eq 0 ]
-then
-    echo "the script executed at $TIMESTAMP" | tee -a $LOG_FILE
-    echo "you are a root user"
+# if [ $USER_ID -eq 0 ]
+# then
+#     echo "the script executed at $TIMESTAMP" | tee -a $LOG_FILE
+#     echo "you are a root user"
 
-else
-    echo "the script executed at $TIMESTAMP"
-    echo "you are not a root user"
-    exit 1
-fi  
+# else
+#     echo "the script executed at $TIMESTAMP"
+#     echo "you are not a root user"
+#     exit 1
+# fi  
 
 # dnf list installed mysql
 
@@ -59,26 +61,26 @@ fi
 # fi
 
 
-VALIDATE(){
-    if [ $1 -eq 0 ]
-    then 
-        echo "the software $2 is installed"
-    else    
-        echo "the software $2 is not installed,there is an issue"
-        exit 1
-    fi
-}
+# VALIDATE(){
+#     if [ $1 -eq 0 ]
+#     then 
+#         echo "the software $2 is installed"
+#     else    
+#         echo "the software $2 is not installed,there is an issue"
+#         exit 1
+#     fi
+# }
 
 
-dnf list installed mysql
-if [ $? -ne 0 ]
-then 
-    echo "mysql is not installed, going to install" | tee -a $LOG_FILE
-    dnf install mysql -y
-    VALIDATE $? "MYSQL"    
-else
-    echo -e "$G already installed $N"
-fi
+# dnf list installed mysql
+# if [ $? -ne 0 ]
+# then 
+#     echo "mysql is not installed, going to install" | tee -a $LOG_FILE
+#     dnf install mysql -y  &>>$LOG_FILE
+#     VALIDATE $? "MYSQL"    
+# else
+#     echo -e "$G already installed $N"
+# fi
 
 # dnf list installed nginx
 # if [ $? -ne 0 ]
@@ -110,3 +112,46 @@ fi
 # else
 #     echo "nginx is already installed...Nothing to do"
 # fi
+
+
+#######################################################################################
+#loops:
+
+R="\e[31m"
+G="\e[32m"
+B="\e[34m"
+
+PACKAGES=("python" "nginx")
+
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then 
+        echo "installing $2..."
+    else
+        echo "there is an issue..."
+    fi
+}
+
+USER_ID=$(id -u)
+
+if [ $USER_ID -ne 0 ]
+then
+    echo "you are not a root user"
+    exit 1
+else
+    echo "you are root user"
+fi
+
+for package in ${PACKAGES[@]}
+do
+    dnf list installed $package
+    if [ $? -ne 0 ]
+    then
+        dnf install $package
+        VALIDATE $? "$package"
+    else
+        echo "it is already exist"
+    fi
+done
+
+
