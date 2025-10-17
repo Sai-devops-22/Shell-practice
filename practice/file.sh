@@ -22,9 +22,10 @@ N="\e[0m"
 
 USER_ID=$( id -u )
 TIMESTAMP=$( date )
-LOG_FOLDER="/var/log/shell-practice.log"
+LOG_FOLDER="/var/log/shell-practice_log"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
+mkdir -p $LOG_FOLDER
 
 if [ $USER_ID -eq 0 ]
 then
