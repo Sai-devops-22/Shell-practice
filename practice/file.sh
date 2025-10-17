@@ -121,12 +121,18 @@ R="\e[31m"
 G="\e[32m"
 B="\e[34m"
 
+LOG_FOLDER="/var/log/shell_log"
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+LOG_FILE=$LOG_FOLDER/$SCRIPT_NAME."log"
+
+mkdir -p $LOG_FOLDER
+
 PACKAGES=("python" "nginx")
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-        echo "installing $2..."
+        echo "installing $2..." | tee -a $LOG_FILE
     else
         echo "there is an issue..."
     fi
@@ -144,10 +150,10 @@ fi
 
 for package in ${PACKAGES[@]}
 do
-    dnf list installed $package
+    dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
-        dnf install $package
+        dnf install $package &>>$LOG_FILE
         VALIDATE $? "$package"
     else
         echo "it is already exist"
