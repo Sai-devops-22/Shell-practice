@@ -119,7 +119,7 @@
 set -e
 
 failure(){
-    echo
+    echo "$1 $2 issue"
 }
 trap 'failure "${LINEND}" "${BASH_COMMAND}"' ERR
 
