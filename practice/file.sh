@@ -159,7 +159,7 @@ do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
-        dnf install $package &>>$LOG_FILE
+        dnfi install $package &>>$LOG_FILE
         VALIDATE $? "$package"
     else
         echo "it is already exist"
