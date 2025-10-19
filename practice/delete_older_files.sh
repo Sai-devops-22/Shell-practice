@@ -8,11 +8,21 @@
 #     ((a++))
 # done
 
+# SOURCE_DIR=/home/ec2-user/apps
+# file_to_delete=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+
+# while IFS= read -r filepath 
+# do
+#     echo "Deleting $filepath whick is less than 14 days...."
+#     rm -rf $filepath
+# done <<< $file_to_delete
+
+
 SOURCE_DIR=/home/ec2-user/apps
 file_to_delete=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
-while IFS= read -r filepath 
+while IFS=read -r filepath
 do
-    echo "Deleting $filepath whick is less than 14 days...."
-    rm -rf $filepath
+    echo "Deleting $filepath which is older than 14 days"
+    rm -rf $file_to_delete
 done <<< $file_to_delete
