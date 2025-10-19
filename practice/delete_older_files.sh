@@ -21,8 +21,7 @@ failure(){
     echo "$1 $2 issue
 }
 
-trap 'failure "{LINEND}" "{BASH_COMMAND}"' ERR
-
+trap 'failure "${LINEND}" "${BASH_COMMAND}"' ERR
 SOURCE_DIR=/home/ec2-user/apps
 file_to_delete=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
