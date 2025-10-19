@@ -13,5 +13,6 @@ file_to_delete=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
 while IFS= read -r filepath 
 do
+    echo "Deleting $filepath whick is less than 14 days...."
     rm -rf $filepath
 done <<< $file_to_delete
