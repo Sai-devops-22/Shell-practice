@@ -9,7 +9,7 @@ if [ ! -z $FILES ]  #if the files are not empty or use -n
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP="$DEST_DIR/apps/$TIMESTAMP.zip"
-    find $SOURCE_DIR -name "*.log" -mtime +14 print0 | zip -@ "$ZIP"  #moving the files from source to dest
+    find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ "$ZIP"  #moving the files from source to dest
 
     if [ -f $ZIP ]
     then
