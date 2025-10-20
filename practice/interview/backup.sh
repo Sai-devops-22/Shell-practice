@@ -34,3 +34,7 @@ fi
 # 5.if -f (is for files) created in zip remove files
 
 # here first we are moving the files to zip and then deleting the files
+
+# [ ! -z $FILES ]         # should be: [ -n "$FILES" ] space issue in files
+# [ -f $ZIP ]             # should be: [ -f "$ZIP" ] better to use ""
+# rm -rf $filepath        # should be: rm -f "$filepath" rm -f for files and rm -rf for directory
