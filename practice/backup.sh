@@ -26,3 +26,11 @@ else
     echo "no files found lolder than 14"
 fi
 
+
+# 1.create two paths source and dest
+# 2.fin command for file older than 14 days
+# 3.if condition, if files are not empty that means if there is any file exsisting older than 14days
+# 4.id exist give time, zip path and zip path
+# 5.if -f (is for files) created in zip remove files
+
+# here first we are moving the files to zip and then deleting the files
