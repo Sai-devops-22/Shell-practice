@@ -3,13 +3,13 @@
 SOURCE_DIR=/home/ec2-user/source_dir
 DEST_DIR=/home/ec2-user/dest_dir
 
-FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +14 )
+FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +14)
 
 if [ -n "$FILES" ]  #if the files are not empty or use -n 
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
-    ZIP="$DEST_DIR/apps/$TIMESTAMP.zip"
-    find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ "$ZIP"  #moving the files from source to dest
+    ZIP=""$DEST_DIR"/apps/$TIMESTAMP.zip"
+    find "$SOURCE_DIR" -name "*.log" -mtime +14 | zip -@ "$ZIP"  #moving the files from source to dest
 
     if [ -f "$ZIP" ]
     then
