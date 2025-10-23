@@ -17,7 +17,7 @@ then
     exit 1
 fi
 
-if [ -n "$FILES" ]  #if the files are not empty or use -n 
+if [ ! -z "$FILES" ]  #if the files are not empty or use -n 
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP=""$DEST_DIR"/apps/$TIMESTAMP.zip"
