@@ -8,5 +8,10 @@ do
     echo "disk usage alert $line"
     usage=$(df -hT | grep -v Filesystem | awk '{print $6f}' | cut -d "%" -f1)
     partition=$(df -hT | grep -v Filesystem | awk '{print $7f}')
-    echo "$partition:$usage"
+    if [$usage -ge $threshold]
+    then 
+        echo "$partition:$usage \n"
+    else
+        echo "everything is fine"
+    fi
 done <<< $disk_usage
