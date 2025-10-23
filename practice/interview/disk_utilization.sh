@@ -9,8 +9,8 @@ do
     PARTITION=$(echo $line | awk '{print $7f}')
     if [ "$USAGE" -ge "$DISK_THRESHOLD" ]
     then 
-        echo "$PARTITION: $USAGE \n"
+        echo -e "$PARTITION: $USAGE \n"
     else
-        echo "everything is fine"
+        echo "everything is fine $line"
     fi
 done <<< $DISK_USAGE
