@@ -5,6 +5,18 @@ DEST_DIR=/home/ec2-user/dest_dir
 
 FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +14)
 
+if [ ! -d $SOURCE_DIR ]
+then
+    echo -e "Source Directory $SOURCE_DIR does not exist. Please check"
+    exit 1
+fi
+
+if [ ! -d $DEST_DIR ]
+then
+    echo -e "Destination Directory $DEST_DIR does not exist. Please check"
+    exit 1
+fi
+
 if [ -n "$FILES" ]  #if the files are not empty or use -n 
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
@@ -15,12 +27,13 @@ then
     then
         echo "created zip files"
 
-        while IFS= read -r filepath;
+        while IFS= read -r filepath
         do
             rm -rf $filepath
         done <<< "$FILES"
     else
         echo "zip file creation error"
+        exit 1
     fi
 else
     echo "no files found lolder than 14"
