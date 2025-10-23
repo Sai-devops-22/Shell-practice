@@ -5,7 +5,7 @@ DEST_DIR=/home/ec2-user/dest_dir
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14 )
 
-if [ ! -z $FILES ]  #if the files are not empty or use -n 
+if [ -n $FILES ]  #if the files are not empty or use -n 
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP="$DEST_DIR/apps/$TIMESTAMP.zip"
