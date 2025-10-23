@@ -1,17 +1,17 @@
 #!/bin/bash
 
-disk_usage=$(df -hT | grep -v Filesystem)
-threshold=1
+DISK_USAGE=$(df -hT | grep -v Filesystem)
+DISK_THRESHOLD=1
 
 while IFS= read -r line
 do
-    echo "disk usage alert $line"
-    usage=$(df -hT | grep -v Filesystem | awk '{print $6f}' | cut -d "%" -f1)
-    partition=$(df -hT | grep -v Filesystem | awk '{print $7f}')
-    if [$usage -ge $threshold]
+    echo "disk USAGE alert $line"
+    USAGE=$(echo $line | awk '{print $6f}' | cut -d "%" -f1)
+    PARTITION=$(echo $line | awk '{print $7f}')
+    if [$USAGE -ge $DISK_THRESHOLD]
     then 
-        echo "$partition:$usage \n"
+        echo "$PARTITION:$USAGE \n"
     else
         echo "everything is fine"
     fi
-done <<< $disk_usage
+done <<< $DISK_USAGE
