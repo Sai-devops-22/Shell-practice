@@ -5,12 +5,11 @@ DISK_THRESHOLD=1
 
 while IFS= read -r line
 do
-    echo "disk USAGE alert $line"
     USAGE=$(echo $line | awk '{print $6f}' | cut -d "%" -f1)
     PARTITION=$(echo $line | awk '{print $7f}')
     if [$USAGE -ge $DISK_THRESHOLD]
     then 
-        echo "$PARTITION:$USAGE \n"
+        echo "$PARTITION: $USAGE \n"
     else
         echo "everything is fine"
     fi
