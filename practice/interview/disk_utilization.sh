@@ -11,6 +11,6 @@ do
     then 
         echo "$PARTITION: $USAGE"
     else
-        echo "everything is fine"
+        echo "$PARTITION everything is fine"
     fi
 done <<< $DISK_USAGE
