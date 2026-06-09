@@ -13,9 +13,20 @@ else
     echo "you are root user"
 fi
 
-if [ $num1 -gt $num2 ]
+dnf list installed nginx
+
+if [ $? -ne 0 ]
 then
-    echo "the $num1 is bigger"
+    echo "already installed"
 else
-    echo "the $num2 is bigger"
+    echo "going to install"
+    dnf install nginx -y
+
+    if [ $? -ne 0 ]
+    then
+        echo "nginx sucessfully installed"
+    else
+        echo "ERROR:: something went wrong"
+        exit 1
+    fi
 fi
