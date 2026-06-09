@@ -8,6 +8,7 @@ USER_ID=$(id -u)
 if [ $USER_ID -ne 0]
 then
     echo "run with root user"
+    exit 1
 else
     echo "you are root user"
 fi
