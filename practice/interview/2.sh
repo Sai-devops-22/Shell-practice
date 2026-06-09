@@ -3,4 +3,4 @@
 $PERSON1 = "modi"
 $PERSON2 = "suresh"
 
-echo "${PERSON1} says hi ${PERSON2}"
+echo "$PERSON1 says hi $PERSON2"
