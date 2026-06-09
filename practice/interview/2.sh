@@ -13,20 +13,20 @@ else
     echo "you are root user"
 fi
 
-dnf list installed mysql
+dnf list installed nginx
 
 if [ $? -ne 0 ]
 then
-    echo "already installed"
-else
     echo "going to install"
-    dnf install mysql -y
+    dnf install nginx -y
 
-    if [ $? -ne 0 ]
+    if [ $? -eq 0 ]
     then
-        echo "mysql sucessfully installed"
+        echo "nginx sucessfully installed"
     else
         echo "ERROR:: something went wrong"
         exit 1
     fi
+else
+    echo "already installed"
 fi
