@@ -1,6 +1,11 @@
 #!/bin/bash
 
-PERSON1="modi"
-PERSON2="suresh"
+num1=10
+num2=20
 
-echo "$PERSON1 says hi $PERSON2"
+if [ $num1 -gt $num2]
+then
+    echo "the $num1 is bigger"
+else
+    echo "the $num2 is bigger"
+fi
