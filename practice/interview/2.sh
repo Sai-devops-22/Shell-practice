@@ -99,14 +99,17 @@ FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
 
 if [ ! -d $SOURCE_DIR ]
+then
     echo "there is no such directory"
 fi
 
 if [ ! -d $DEST_DIR ]
+then
     echo "there is no such directory"
 fi
 
 if [ ! -z $FILES ]
+then
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP="$DEST_DIR/apps/$TIMESTAMP.log"
     find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ $ZIP
