@@ -115,7 +115,7 @@ if [ ! -z "$FILES" ]
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP="$DEST_DIR/$TIMESTAMP.log"
-    find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ $ZIP
+    find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ "$ZIP"
 
     while IFS= read -r filepath
     do
