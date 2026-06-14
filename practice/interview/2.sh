@@ -106,7 +106,7 @@ fi
 
 if [ ! -d "$DEST_DIR" ]
 then
-    echo "there is no such dest_directory"
+    echo "there is no such dest_directory, going to create"
     mkdir -p "$DEST_DIR"    
 
 fi
