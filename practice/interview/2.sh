@@ -115,14 +115,14 @@ if [ ! -z "$FILES" ]
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP="$DEST_DIR/$TIMESTAMP.log"
-    find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ "$ZIP"
+    find $SOURCE_DIR -name "*.log" -mtime +13 | zip -@ "$ZIP"
 
     while IFS= read -r filepath
     do
         rm -rf "$filepath"
     done <<< "$FILES"
 else
-    echo "there is no files under 14 days"
+    echo "there is no files under 13 days"
 fi
 
 
