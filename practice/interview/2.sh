@@ -87,7 +87,7 @@ failure(){
     echo "there an issue $1:$2"
 }
 
-trap 'failure "${LINENO}" "${BASH_COMMAND}"' EXIT
+trap 'failure "${LINENO}" "${BASH_COMMAND}"' ERR
 
 USER=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
@@ -95,20 +95,22 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 SOURCE_DIR=/home/ec2-user/source_dir
 DEST_DIR=/home/ec2-user/dest_dir
 
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +14)
 
 
-if [ ! -d $SOURCE_DIR ]
+if [ ! -d "$SOURCE_DIR" ]
 then
     echo "there is no such directory"
+    exit 1
 fi
 
-if [ ! -d $DEST_DIR ]
+if [ ! -d "$DEST_DIR" ]
 then
     echo "there is no such directory"
+    exit 1 
 fi
 
-if [ ! -z $FILES ]
+if [ ! -z "$FILES" ]
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP="$DEST_DIR/apps/$TIMESTAMP.log"
@@ -116,8 +118,8 @@ then
 
     while IFS= read -r filepath
     do
-        rm -rf $filepath
-    done <<< $FILES
+        rm -rf "$filepath"
+    done <<< "$FILES"
 else
     echo "there is no files under 14 days"
 fi
