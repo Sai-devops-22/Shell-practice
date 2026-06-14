@@ -100,13 +100,13 @@ FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +14)
 
 if [ ! -d "$SOURCE_DIR" ]
 then
-    echo "there is no such directory"
+    echo "there is no such source_directory"
     exit 1
 fi
 
 if [ ! -d "$DEST_DIR" ]
 then
-    echo "there is no such directory"
+    echo "there is no such dest_directory"
     exit 1 
 fi
 
