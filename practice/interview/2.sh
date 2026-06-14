@@ -107,7 +107,11 @@ fi
 if [ ! -d "$DEST_DIR" ]
 then
     echo "there is no such dest_directory"
-    exit 1 
+    if [ if $? -ne 0 ]
+    then
+        mkdir dest_dir
+    fi
+
 fi
 
 if [ ! -z "$FILES" ]
