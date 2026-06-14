@@ -95,7 +95,7 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 SOURCE_DIR=/home/ec2-user/source_dir
 DEST_DIR=/home/ec2-user/dest_dir
 
-FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +15)
+FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +13)
 
 
 if [ ! -d "$SOURCE_DIR" ]
