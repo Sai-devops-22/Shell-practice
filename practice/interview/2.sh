@@ -95,7 +95,7 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 SOURCE_DIR=/home/ec2-user/source_dir
 DEST_DIR=/home/ec2-user/dest_dir
 
-FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +14)
+FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +15)
 
 
 if [ ! -d "$SOURCE_DIR" ]
@@ -114,7 +114,7 @@ fi
 if [ ! -z "$FILES" ]
 then
     TIMESTAMP=$(date +%F-%H-%M-%S)
-    ZIP="$DEST_DIR/apps/$TIMESTAMP.log"
+    ZIP="$DEST_DIR/$TIMESTAMP.log"
     find $SOURCE_DIR -name "*.log" -mtime +14 | zip -@ $ZIP
 
     while IFS= read -r filepath
