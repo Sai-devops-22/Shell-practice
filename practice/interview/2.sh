@@ -109,7 +109,7 @@ then
     echo "there is no such dest_directory"
     if [ $? -ne 0 ]
     then
-        mkdir dest_dir
+        mkdir -p "$DEST_DIR"    
     fi
 
 fi
