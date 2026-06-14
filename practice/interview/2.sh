@@ -87,7 +87,7 @@ failure(){
     echo "there an issue $1:$2"
 }
 
-trap 'failure "${LINENO}" "${BASH_COMMAND}"' ERR
+trap 'failure "${LINENO}" "${BASH_COMMAND}"' EXIT
 
 USER=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
